@@ -14,7 +14,9 @@ public class AutoWalk : MonoBehaviour {
 		speed = Random.Range (0.01f, 0.2f);
 		endPoint = new Vector3(0.0f, 0.0f, 0.0f);
 		startPoint = new Vector3();
-		randomX = Random.Range (-3.0f, 3.0f);
+		randomX = Random.Range (-6.0f, 6.0f);
+		Vector3 randomVector = new Vector3(randomX,0.0f,0.0f);
+		transform.position += randomVector;
 		startPoint = transform.position;
 	}
 	
