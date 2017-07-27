@@ -10,7 +10,7 @@ public class TextReader : ITextReader {
 		var level = Read(Path);
 	}
 	public void Log(){
-		Debug.Log ("Testing DI");
+		Debug.Log ("TextReader, Function Log Testing DI");
 	}
 
 	public string Read(string name){

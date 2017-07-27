@@ -8,10 +8,8 @@ public class SantaCloner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		InvokeRepeating ("Clone", speed, speed);
-
 	}
 
-	// Update is called once per frame
 	void Clone () {
 		GameObject obj = NewObjectPooler.current.GetPooledObject ();
 		if (obj != null) {
