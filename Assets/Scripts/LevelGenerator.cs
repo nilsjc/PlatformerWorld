@@ -17,11 +17,25 @@ public class LevelGenerator : MonoBehaviour {
 
 	void Print(){
 		//var level = _textReader.Read ("level.txt");
-		var level = "11111111\\r\\n10000001\\r\\n10000001\\r\\n11111111";
-		for (int i = 0; i < 8; i++) {
-			GameObject brick = Instantiate (WallBrick);
-			brick.GetComponent<Transform> ().position = new Vector3 ((1.0f * i), 1.0f, 0f);	
+		int[,] level = new int[8, 8] { 
+			{1,1,1,1,1,1,0,1}, 
+			{1,0,0,0,0,0,0,1}, 
+			{1,0,0,1,1,1,1,1},
+			{1,0,0,1,0,0,0,1},
+			{1,1,0,0,0,1,0,1},
+			{1,0,0,1,1,1,0,1}, 
+			{1,0,0,0,0,0,0,1}, 
+			{1,0,1,1,1,1,1,1}
+		};
+		for (int y = 0; y < level.GetLength(0); y++) {
+			for (int x = 0; x < level.GetLength(1); x++) {
+				if (level [y, x] > 0) {
+					Debug.Log (y.ToString());
+					GameObject brick = Instantiate (WallBrick);
+					brick.layer = 8;
+					brick.GetComponent<Transform> ().position = new Vector3 ((1.0f * x), (1.0f * -y), 0f);
+				}
+			}
 		}
-
 	}
 }
