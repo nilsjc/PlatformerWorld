@@ -15,13 +15,15 @@ public class TextReader : ITextReader {
 
 	public string Read(string name){
 		if(Directory.Exists(name) || File.Exists(name)){
-			StreamReader sr = new StreamReader (Path);
+			StreamReader sr = new StreamReader (name);
 			var level = sr.ReadToEnd ();
 			sr.Close ();
 			return level;	
 		}
-			else{
-				return "1110001210";
+			else
+		{
+			Debug.Log ("Text file is non existing");
+			return null;
 		}
 	}
 }
